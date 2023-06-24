@@ -1,0 +1,30 @@
+.container-login{
+    background-color: rgba(23, 124, 31, 0.219);
+}
+
+.title-login{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 20px;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    height: 300px;
+    justify-content: center;
+}
+
+
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /* background-color: aqua; */
+
+}
