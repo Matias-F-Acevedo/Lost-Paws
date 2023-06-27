@@ -1,4 +1,5 @@
 import Navbar from "../navbar/Navbar"
+import "./index.css"
 function Principal ({accesoPermitido, setAcceso}){
     return(
         <div>

@@ -9,7 +9,7 @@
 
 
 .header{
-    background-color: rgba(23, 124, 32, 0.719);
+    background-color: transparent;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .header .logo img{
-    height: 70px;
+    height: 90px;
     width: auto;
 
     /* el tiempo de la transition en el logo, para que no sea brusco el cambio */
@@ -33,7 +33,7 @@
 
 .header .logo img:hover {
     /* se escala a 1.2, "crece/trasition" */
-   transform: scale(1.2); 
+   transform: scale(1.1); 
 }
 
 .header .nav-links{
@@ -55,12 +55,12 @@
 
 .header .nav-links a{
     font-size: 700;
-    color: rgb(236, 239, 241);
+    color: rgb(0, 0, 0);
 
 }
 
 .header .nav-links li a:hover {
-    color: white;
+    color: rgb(255, 143, 39);
 }
 
 

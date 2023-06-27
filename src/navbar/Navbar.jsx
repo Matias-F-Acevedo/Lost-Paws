@@ -23,7 +23,7 @@ function Navbar({ setAcceso, accesoPermitido}) {
     return (
         <header className="header">
             <div className="logo">
-                <Link to={"/"}> <img src="/src/navbar/logo.png" alt="Logo" /></Link>
+                <Link to={"/"}> <img src="/src/navbar/loguito.png" alt="Logo" /></Link>
             </div>
             <nav className="nav">
                 <ul className="nav-links">

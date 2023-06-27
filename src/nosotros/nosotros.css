@@ -1,0 +1,33 @@
+.nosotrosDiv{
+    margin-top: 10%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p{
+    margin: 1%;
+}
+
+#puton{
+        border: transparent;
+        background: transparent;
+        display: inline-flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        color: transparent;
+        cursor: pointer;
+        position: fixed;
+        right: 20px;
+        left: auto;
+        bottom: 20px;
+        height: 55px;
+}
+
+#imgg{
+width: 50px;
+height: 50px;
+}
