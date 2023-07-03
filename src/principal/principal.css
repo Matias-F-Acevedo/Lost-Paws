@@ -1,0 +1,200 @@
+.container-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    margin: 1%;
+}
+
+.card {
+    background-color: bisque;
+    width: 300px;
+    height: 440px;
+    border-radius: 10px;
+    padding: 15px; 
+    cursor: pointer;
+
+}
+
+
+.card:hover{
+    background-color:rgb(236, 239, 241); ;
+
+}
+
+
+
+.container-contenido ul li {
+    list-style: none;
+}
+
+.container-contenido ul {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-left: 6px;
+}
+
+
+.imagen-perro {
+    width: 100%;
+    height: 90%;
+    border-radius: 4px;
+}
+
+.container-img {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.container-contenido {
+    padding-top: 7px;
+
+}
+
+.nombre-perro {
+    background-color: rgba(255, 0, 0, 0.466);
+    text-align: center;
+}
+
+
+
+
+
+.filtro{
+    display: none;
+}
+
+
+
+
+
+.dialog{
+    background-color: bisque;
+    border-radius: 5px;
+    flex-direction: column;
+    width: 60%;
+    height: 110%;
+    position: absolute;
+    margin: auto;
+    
+}
+
+.dialog form{
+   
+    margin: 60px 60px 10px 60px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    zoom: 0.9;
+
+
+}
+
+.dialog form input{
+   height: 30px;
+   border: none;
+   border-radius: 5px;
+   padding-left: 6px;
+
+}
+.dialog form label{
+    font-size: 23px;
+}
+
+.form-file-image{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+}
+
+.form-div-buttons{
+
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-top: 10px;
+
+}
+
+.form-div-buttons button{
+    width: 30%;
+    height: 40px;
+    text-align: center;
+
+
+}
+
+.dialog-div-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content:center;
+}
+
+.dialog-div-buttons button{
+    width: 25%;
+    height: 40px;
+    text-align: center;
+}
+
+
+.btnExitDialog{
+ 
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 40px;
+    background-color: rgba(23, 124, 31, 0);
+    border: none;
+    color: black;
+    
+}
+
+
+
+
+
+
+/* ------------btn create----------------------- */
+
+.container-btnCreate{
+
+    height:  32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+}
+
+.btnCreate{
+height: 100%;
+width: 7%;
+margin-right: 20px;
+zoom: 2.0;
+background-color:rgba(255, 0, 0, 0);
+border: none;
+}
+
+.btnCreate:hover{
+transform: scale(1.1);
+}
+
+.btnCreate:active{
+    transform: scale(1.2);
+}
+
+
+.displayNone{
+    display: none;
+}
+

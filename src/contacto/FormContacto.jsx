@@ -16,7 +16,7 @@ function addOne(user) {
   }
 
 
-const FormContacto = ({accesoPermitido, setAcceso}) => {
+const FormContacto = () => {
   const nombreCompleto = useRef();
   const email = useRef();
   const telefono = useRef();
@@ -41,7 +41,7 @@ const FormContacto = ({accesoPermitido, setAcceso}) => {
 
 return (
   <>
-  <Navbar accesoPermitido={accesoPermitido} setAcceso={setAcceso}/>
+  <Navbar/>
     <form id="formContacto" action="" className="form-register" onSubmit={handleSubmit}>
     <h3>Si usted perdio su mascota o la encontro publicada en la pagina, envienos un mensaje y nos pondremos en contacto con usted.</h3>
       <h4>Contacto</h4>

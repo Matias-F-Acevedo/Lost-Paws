@@ -102,8 +102,6 @@
     }
 }
 
-
-
 .header a {
     text-decoration: none;
 }
@@ -163,4 +161,31 @@
 
 
 
+.componentAdicional {
+    margin-right:auto ;
 
+}
+
+
+.componentAdicional input {
+width: 160px;
+height: 40px;
+border-radius: 5px;
+border: none;
+text-align: center;
+}
+
+@media (min-width: 930px) {
+    .componentAdicional input {
+        width: 260px;
+        font-size: 21px;
+        }
+  }
+
+  @media (max-width: 450px) {
+    .componentAdicional input {
+        width: 120px;
+        margin: 15px;
+        font-size: 15px;
+        }
+  }

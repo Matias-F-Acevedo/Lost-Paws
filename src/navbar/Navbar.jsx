@@ -1,10 +1,17 @@
 import "./navbar.css"
 import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { UserContext } from '../UserContext';
 
 
 
 
-function Navbar({ setAcceso, accesoPermitido}) {
+
+
+function Navbar({ componenteAdicional }) {
+
+
+    const { user, handleLogout } = useContext(UserContext);
 
     function openNav() {
         document.getElementById("responsive-menu").style.width = "100%"
@@ -16,26 +23,33 @@ function Navbar({ setAcceso, accesoPermitido}) {
 
     }
 
-    function cerrarSesion (){
-        setAcceso(false)
-    }
+
 
     return (
         <header className="header">
             <div className="logo">
                 <Link to={"/"}> <img src="/src/navbar/logo.png" alt="Logo" /></Link>
             </div>
+            <div className="componentAdicional">
+                {componenteAdicional}
+
+            </div>
             <nav className="nav">
+
                 <ul className="nav-links">
+
                     <li><Link to={"/nosotros"}>Nosotros</Link></li>
                     <li><Link to={"/contacto"}>Contacto</Link></li>
+
                 </ul>
+
             </nav>
 
-            {/* cerramos la sesion cambiando el estado  */}
-            {accesoPermitido ?<button onClick={cerrarSesion} className="btn btnCloseSession">Cerrar sesion</button>: <Link to={"/login"} className="btn"><button>Login</button></Link>}
-
-            {/* <Link to={"/login"} className="btn"><button>Login</button></Link> */}
+            {user ?
+                <button onClick={handleLogout} className="btn btnCloseSession">Cerrar sesion</button>
+                :
+                <Link to={"/login"} className="btn"><button>Login</button></Link>
+            }
 
             <button onClick={openNav} className="menu">Menu</button>
 
@@ -45,7 +59,10 @@ function Navbar({ setAcceso, accesoPermitido}) {
                 <div className="overlay-content">
                     <Link to={"/nosotros"}>Nosotros</Link>
                     <Link to={"/contacto"}>Contacto</Link>
-                    {accesoPermitido ?<button onClick={cerrarSesion} className="btnCloseSession">Cerrar sesion</button>: <Link to={"/login"} className="btn"><button>Login</button></Link>}
+                    {user ?
+                        <button onClick={handleLogout} className="btnCloseSession">Cerrar sesion</button>
+                        :
+                        <Link to={"/login"} className="btn"><button>Login</button></Link>}
 
                 </div>
             </div>

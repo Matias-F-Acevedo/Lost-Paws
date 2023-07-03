@@ -1,8 +1,8 @@
 import Navbar from "../navbar/Navbar"
-const Nosotros = ({accesoPermitido, setAcceso}) => {
+const Nosotros = () => {
     return (
       <>
-        <Navbar accesoPermitido={accesoPermitido} setAcceso={setAcceso}/>
+        <Navbar/>
         <h2>Encuentra animales perdidos con nosotros</h2>
         <p>
           En nuestra organización, nos dedicamos a encontrar y rescatar animales perdidos. Nuestro objetivo principal es reunir a las mascotas perdidas con sus dueños.
