@@ -223,7 +223,7 @@ function Principal() {
 
                     {
                         mascotas.length == 0 && user == true && error == false ?
-                            <h2>Loading...</h2>
+                            <h2>Cargando...</h2>
                             : <></>
                     }
 
@@ -238,30 +238,30 @@ function Principal() {
 
 
 
-                            <label>Nombre</label>
-                            <input type="text" name="nombre" placeholder="nombre" value={currentPet.name} onChange={(e) => { setcurrentPet(prev => ({ ...prev, name: e.target.value })) }} required />
+                            <label>nombre</label>
+                            <input type="text" name="nombre" placeholder="name" value={currentPet.name} onChange={(e) => { setcurrentPet(prev => ({ ...prev, name: e.target.value })) }} required />
 
 
-                            <label>Perdido el dia (dd/mm/yy)</label>
-                            <input type="text" name="date" placeholder="Perdido el dia (dd/mm/yy)" value={currentPet.date} onChange={(e) => { setcurrentPet(prev => ({ ...prev, date: e.target.value })) }} required />
+                            <label>perdido el dia (dd/mm/yy)</label>
+                            <input type="text" name="dato" placeholder="perdido el dia (dd/mm/yy)" value={currentPet.date} onChange={(e) => { setcurrentPet(prev => ({ ...prev, date: e.target.value })) }} required />
 
-                            <label>City</label>
-                            <input type="text" name="city" placeholder="City" value={currentPet.city} onChange={(e) => { setcurrentPet(prev => ({ ...prev, city: e.target.value })) }} required />
+                            <label>ciudad</label>
+                            <input type="text" name="ciudad" placeholder="ciudad" value={currentPet.city} onChange={(e) => { setcurrentPet(prev => ({ ...prev, city: e.target.value })) }} required />
 
-                            <label>Raza</label>
-                            <input type="text" name="raza" placeholder="Raza" value={currentPet.raza} onChange={(e) => { setcurrentPet(prev => ({ ...prev, raza: e.target.value })) }} required />
+                            <label>raza</label>
+                            <input type="text" name="raza" placeholder="raza" value={currentPet.raza} onChange={(e) => { setcurrentPet(prev => ({ ...prev, raza: e.target.value })) }} required />
 
-                            <label>Gender</label>
-                            <input type="text" name="gender" placeholder="Gender" value={currentPet.gender} onChange={(e) => { setcurrentPet(prev => ({ ...prev, gender: e.target.value })) }} required />
+                            <label>genero</label>
+                            <input type="text" name="genero" placeholder="genero" value={currentPet.gender} onChange={(e) => { setcurrentPet(prev => ({ ...prev, gender: e.target.value })) }} required />
 
-                            <label>Age</label>
-                            <input type="number" name="age" placeholder="Age" value={currentPet.age} onChange={(e) => { setcurrentPet(prev => ({ ...prev, age: e.target.value })) }} required />
+                            <label>edad</label>
+                            <input type="number" name="edad" placeholder="edad" value={currentPet.age} onChange={(e) => { setcurrentPet(prev => ({ ...prev, age: e.target.value })) }} required />
 
-                            <label>Size</label>
-                            <input type="text" name="size" placeholder="Size" value={currentPet.size} onChange={(e) => { setcurrentPet(prev => ({ ...prev, size: e.target.value })) }} required />
+                            <label>tamaño</label>
+                            <input type="text" name="tamaño" placeholder="tamaño" value={currentPet.size} onChange={(e) => { setcurrentPet(prev => ({ ...prev, size: e.target.value })) }} required />
 
-                            <label>Contact</label>
-                            <input type="text" name="contact" placeholder="Contact" value={currentPet.contact} onChange={(e) => { setcurrentPet(prev => ({ ...prev, contact: e.target.value })) }} required />
+                            <label>contacto</label>
+                            <input type="text" name="contacto" placeholder="Contacto" value={currentPet.contact} onChange={(e) => { setcurrentPet(prev => ({ ...prev, contact: e.target.value })) }} required />
                             <div className="form-file-image">
                                 <label>Imagen:</label>
                                 <input type="file" accept="image/*" name="imagPet" ref={inputFile} />
@@ -274,7 +274,7 @@ function Principal() {
                                 </div>
                                 :
                                 <div className="form-div-buttons">
-                                    <button type="submit">Update</button>
+                                    <button type="submit">Editar</button>
                                 </div>
                             }
                         </form>
@@ -285,7 +285,7 @@ function Principal() {
                             </div>
                             :
                             <div className="dialog-div-buttons">
-                                <button onClick={() => deletePet()}>Delete</button>
+                                <button onClick={() => deletePet()}>eliminar</button>
                             </div>
                         }
                     </dialog >

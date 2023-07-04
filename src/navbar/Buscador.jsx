@@ -22,7 +22,7 @@ function handleKeyUp(e)  {
 
 
     return(
-      <input type="text" onKeyUp={handleKeyUp} id="inputSearch" placeholder="Search by breed"/>
+      <input type="text" onKeyUp={handleKeyUp} id="inputSearch" placeholder="Buscar mascota"/>
     )
 }
 

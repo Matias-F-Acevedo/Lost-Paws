@@ -1,9 +1,18 @@
 import Navbar from "../navbar/Navbar"
-const Nosotros = () => {
+import "./Nosotros.css"
+import { Carousel } from "react-responsive-carousel"; // importa el componente de carrusel
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // importa los estilos del carrusel
+
+
+const Nosotros = ({accesoPermitido, setAcceso}) => {
     return (
       <>
-        <Navbar/>
+       <div className="navbar">
+        <Navbar accesoPermitido={accesoPermitido} setAcceso={setAcceso} />
+      </div>
+      <div className="container">
         <h2>Encuentra animales perdidos con nosotros</h2>
+       <br></br>
         <p>
           En nuestra organización, nos dedicamos a encontrar y rescatar animales perdidos. Nuestro objetivo principal es reunir a las mascotas perdidas con sus dueños.
         </p>
@@ -25,7 +34,32 @@ const Nosotros = () => {
         <p>
           Si estás interesado en ser parte de nuestra organización como voluntario o si quieres brindar apoyo de alguna otra manera, por favor contáctanos. ¡Juntos podemos marcar la diferencia!
         </p>
-        <p>animales-alrescate@gmail.com</p>
+        <p className="email">animales-alrescate@gmail.com</p>
+        </div>
+        <div className="carousel-container">
+        <Carousel>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgWO_Uaxkk_Fqe5IWydHC03KqOSHxnUDLLqdj80IiCeIDV77WTstjpqpQ5vGjv6i9AO4E&usqp=CAU" alt="Imagen 1" />
+            <p className="legend">Siempre</p>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQptuinqBg7c5Sw9texX8_JMwlngwasTx8hY8IOjZTpc3KUbaALNQPR2s0_svOu54QJ9QI&usqp=CAU" alt="Imagen 2" />
+            <p className="legend">rescatando</p>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt800EyFJa-0KbMNIp9ljf3t-NsP38c_Ct0epqknRn_k50KfvMWdGwG8RVJEI2FTjohOA&usqp=CAU" alt="Imagen 3" />
+            <p className="legend">animales</p>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrPy6FiHcz6Wxfpgg28WGLH5Ujt62o-rN7HYAMK_1O7qzSnVEKNpw-CiBreUmm5Da5DxY&usqp=CAU" alt="Imagen 4" />
+            <p className="legend">perdidos</p>
+          </div>
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNVMapRwthYIlDqXsLZZYl9u74aZ8nha9VhNXLmw-LFOZZ2h1ZpqCB25WhjtZlWU2ylt0&usqp=CAU" alt="Imagen 5" />
+            <p className="legend">juntos</p>
+            </div>
+        </Carousel>
+        </div>
       </>
     );
   }

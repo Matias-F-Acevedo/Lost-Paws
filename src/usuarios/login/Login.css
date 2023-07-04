@@ -1,6 +1,6 @@
 .container-login {
     display: flex;
-    background-color: rgba(23, 124, 31, 0.219);
+    background-color: rgba(88, 24, 69);
     width: 40%;
     justify-content: center;
     margin: auto;
@@ -9,6 +9,7 @@
 }
 
 .title-login {
+    color: rgba(255, 195, 0);
     font-size: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-bottom: 4%;
@@ -51,6 +52,7 @@
 
 
 .form-login button {
+    background-color: rgba(255, 195, 0);
     border-radius: 5px;
     width: 50%;
     height: 40%;

@@ -66,19 +66,19 @@ function Login() {
             <Navbar/>
             {user ?
                 <div className="container-login-welcome">
-                    <h1 className="login-welcome">{`Welcome ${userName.toLocaleUpperCase()} 🐾`}</h1>
+                    <h1 className="login-welcome">{`Bienvenido ${userName.toLocaleUpperCase()} 🐾`}</h1>
 
                 </div>
                 
                 :
                 <div className="container-login">
                     <div className="login">
-                        <h1 className="title-login">Log in</h1>
+                        <h1 className="title-login">Iniciar sesion</h1>
                         <p className="p-error">{error}</p>
                         <form onSubmit={handleSubmit} className="form-login">
                             <input type="text" value={userName} placeholder="User" onChange={event => setUserName(event.target.value)} />
                             <input type="password" value={password} placeholder="Password" onChange={event => setPassword(event.target.value)} />
-                            <button type="submit">Sing in</button>
+                            <button type="submit">Ingresar</button>
                         </form>
                     </div>
                 </div>

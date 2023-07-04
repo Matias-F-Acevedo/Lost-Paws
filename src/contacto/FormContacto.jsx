@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Navbar from "../navbar/Navbar"
+import "./formContacto.css"
 
 
 
@@ -41,18 +42,20 @@ const FormContacto = () => {
 
 return (
   <>
-  <Navbar/>
+  <Navbar />
+    <div id="divFormContacto">
+      <p id="parOutForm">Si usted perdio su mascota o la encontro publicada en <a href="/">aqui</a>, <br /> envienos un mensaje y nos pondremos en contacto con usted.</p>
     <form id="formContacto" action="" className="form-register" onSubmit={handleSubmit}>
-    <h3>Si usted perdio su mascota o la encontro publicada en la pagina, envienos un mensaje y nos pondremos en contacto con usted.</h3>
       <h4>Contacto</h4>
       <input ref={nombreCompleto} className="controls" type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Ingrese su Nombre y apellido" />
       <input ref={email} className="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo" />
       <input ref={telefono} className="controls" type="tel" id="phone" name="phone" placeholder='Ingrese su Numero de Telefono'required
         pattern="^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$"/>
       <textarea ref={mensaje} className= "controls" name="mensaje" id="mensaje" cols="30" rows="10" placeholder='Ingrese su mensaje'></textarea>
-      <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+      <p id="parOnForm">Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
       <input className="botons" type="submit" value="Enviar Mensaje" />
     </form>
+    </div>
   </>
 )
 }

@@ -48,7 +48,7 @@ function Navbar({ componenteAdicional }) {
             {user ?
                 <button onClick={handleLogout} className="btn btnCloseSession">Cerrar sesion</button>
                 :
-                <Link to={"/login"} className="btn"><button>Login</button></Link>
+                <Link to={"/login"} className="btn"><button>Ingresar</button></Link>
             }
 
             <button onClick={openNav} className="menu">Menu</button>
@@ -62,7 +62,7 @@ function Navbar({ componenteAdicional }) {
                     {user ?
                         <button onClick={handleLogout} className="btnCloseSession">Cerrar sesion</button>
                         :
-                        <Link to={"/login"} className="btn"><button>Login</button></Link>}
+                        <Link to={"/login"} className="btn"><button>Ingresar</button></Link>}
 
                 </div>
             </div>

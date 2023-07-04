@@ -9,7 +9,7 @@
 
 
 .header{
-    background-color: rgba(23, 124, 32, 0.719);
+    background-color: rgba(88, 24, 69);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .header .logo img{
-    height: 70px;
+    height: 80px;
     width: auto;
 
     /* el tiempo de la transition en el logo, para que no sea brusco el cambio */
