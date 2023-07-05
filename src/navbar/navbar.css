@@ -9,7 +9,7 @@
 
 
 .header{
-    background-color: rgba(23, 124, 32, 0.719);
+    background-color: rgba(88, 24, 69);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .header .logo img{
-    height: 70px;
+    height: 80px;
     width: auto;
 
     /* el tiempo de la transition en el logo, para que no sea brusco el cambio */
@@ -102,8 +102,6 @@
     }
 }
 
-
-
 .header a {
     text-decoration: none;
 }
@@ -116,7 +114,8 @@
     z-index: 1;
     left: 0;
     top: 0;
-    background-color: rgba(23, 124, 53, 0.938);
+    
+    background-color: rgba(88, 24, 69,0.938);
     /* esta opción genera el efecto contrario a la opción visible. Es decir, con esta opción hacemos que todo el contenido que sobresale de su contenedor se oculte. */
     overflow: hidden;
     transition: all 0.3s ease 0s;
@@ -163,4 +162,31 @@
 
 
 
+.componentAdditional {
+    margin-right:auto ;
 
+}
+
+
+.componentAdditional input {
+width: 160px;
+height: 40px;
+border-radius: 5px;
+border: none;
+text-align: center;
+}
+
+@media (min-width: 930px) {
+    .componentAdditional input {
+        width: 260px;
+        font-size: 21px;
+        }
+  }
+
+  @media (max-width: 450px) {
+    .componentAdditional input {
+        width: 120px;
+        margin: 15px;
+        font-size: 15px;
+        }
+  }

@@ -1,14 +1,26 @@
-.container-login{
-    background-color: rgba(23, 124, 31, 0.219);
+.container-login {
+    display: flex;
+    background-color: rgba(88, 24, 69);
+    width: 40%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 15px;
 }
 
-.title-login{
+.title-login {
+    color: rgba(255, 195, 0);
     font-size: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-bottom: 20px;
+    padding-bottom: 4%;
 }
 
-.login{
+.p-error {
+    margin-bottom: 2%;
+    color: white;
+}
+
+.login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,12 +31,78 @@
 
 
 
-.formulario{
+.form-login {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    /* background-color: aqua; */
+
+}
+
+.form-login input {
+
+
+    border-radius: 5px;
+    border: none;
+    padding-left: 2%;
+    height: 30px;
+    width: 100%;
+}
+
+
+.form-login button {
+    background-color: rgba(255, 195, 0);
+    border-radius: 5px;
+    width: 50%;
+    height: 40%;
+}
+
+.container-login-welcome{
+background-color:rgb(243, 240, 255);
+margin: auto;
+width: 50%;
+border-radius: 10px;
+
+}
+
+.login-welcome {
+    text-align: center;
+    font-size: 50px;
+    margin-top:10%;
+}
+
+
+
+@media (max-width: 500px) {
+    .container-login {
+        width: 90%;
+        zoom: 1.2;
+    }
+
+    .form-login input {
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .container-login {
+        zoom: 1.2;
+        width: 70%;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .container-login {
+        width: 95%;
+        height: 100%;
+    }
+
+    .form-login {
+        zoom: 1.1;
+
+    }
 
 }
