@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Navbar from "../navbar/Navbar"
 import "./formContacto.css"
-
+import Footer from "../footer/footer"
 
 
 const BASE_URL = "https://648104b3f061e6ec4d4a2cfd.mockapi.io/contacto";
@@ -89,7 +89,7 @@ const FormContacto = () => {
           <input ref={email} className="controls" type="email" name="correo" id="correo" placeholder="Enter your email address" />
           <input ref={telefono} className="controls" type="tel" id="phone" name="phone" placeholder='Enter your Phone Number' required
             pattern="^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$" />
-          <input type="file" ref={fileInput} />
+          <input type="file" ref={fileInput} className="controls" />
           <textarea ref={mensaje} className="controls" name="mensaje" id="mensaje" cols="30" rows="10" placeholder='Enter your message' required></textarea>
           <label htmlFor="acuerdo">
             <input ref={acuerdo} type="checkbox" id="parOnForm" name="acuerdo" required />
@@ -100,6 +100,7 @@ const FormContacto = () => {
           <input className="botons" type="submit" value="Send Message" />
         </form>
       </div>
+      <Footer></Footer>
     </>
   )
 }
