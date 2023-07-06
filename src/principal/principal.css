@@ -6,6 +6,7 @@
     justify-content: center;
     padding-top: 10px;
     margin: 1%;
+    margin-bottom: 5%;
 }
 
 .displayNone{
@@ -86,10 +87,11 @@
     border-radius: 5px;
     flex-direction: column;
     width: 60%;
-    height: 110%;
-    position: absolute;
+    height: 720px;
+    position: relative;
     margin: auto;
     color: rgb(255, 87, 51);
+    margin-bottom: 100px;
 }
 
 .dialog form{
@@ -164,11 +166,38 @@
     color: black;
     
 }
+.btn-cancel-delete{
+    background-color: rgb(190, 26, 26);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+.btn-cancel-delete:hover{
+    background-color: red;
+    transform: scale(1.1);
+}
+.btn-cancel-delete:active{
+    background-color:rgba(190, 26, 26, 0.705);
+    transform: scale(1.1);
+}
 
 
+.btn-create-update{
+    background-color: rgb(23, 119, 23);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
 
-
-
+.btn-create-update:hover{
+    background-color: green;
+    transform: scale(1.1);
+}
+.btn-create-update:active{
+    background-color:rgb(0, 128, 0, 0.705);
+    transform: scale(1.1);
+}
 
 
 /* -----------------------Btn Create Card----------------------------- */
@@ -216,6 +245,8 @@ transform: scale(1.1);
         margin-top: 5%;
         width: 70%;
         height: 720px;
+        position: relative;
+        margin-bottom: 5%;
 
     }
 
@@ -248,6 +279,8 @@ transform: scale(1.1);
         margin: auto;
         margin-top: 5%;
         zoom: 1.1;
+        position: relative;
+        margin-bottom: 5%;
     }
 
 

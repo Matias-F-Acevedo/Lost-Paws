@@ -2,7 +2,7 @@ import "./navbar.css"
 import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { UserContext } from '../UserContext';
-import { TbLogout } from "react-icons/tb";
+import { TbLogout,TbLogin } from "react-icons/tb";
 
 
 
@@ -48,7 +48,7 @@ function Navbar({ componentAdditional }) {
             {user ?
                 <button onClick={handleLogout} className="btn btnCloseSession">Logout  <TbLogout/></button>
                 :
-                <Link to={"/login"} className="btn"><button>Login</button></Link>
+                <Link to={"/login"} className="btn"><button>Login<TbLogin/></button></Link>
             }
 
             <button onClick={openNav} className="menu">Menu</button>
@@ -62,7 +62,7 @@ function Navbar({ componentAdditional }) {
                     {user ?
                         <button onClick={handleLogout} className="btnCloseSession">Logout <TbLogout/></button>
                         :
-                        <Link to={"/login"} className="btn"><button>Login</button></Link>}
+                        <Link to={"/login"} className="btn"><button>Login<TbLogin/></button></Link>}
 
                 </div>
             </div>
