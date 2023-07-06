@@ -1,6 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect,useRef, useState } from "react";
 import Navbar from "../navbar/Navbar"
 import "./formContacto.css"
+import { UserContext } from "../UserContext";
+import { useContext } from "react";
 
 
 
@@ -39,6 +41,8 @@ const FormContacto = () => {
   const fileInput = useRef();
   const [enviado, setEnviado] = useState(false);
   const [error, setError] = useState(null);
+  const { user } = useContext(UserContext);
+  const [datos, setDatos] = useState([]);
 
 
 
@@ -78,28 +82,60 @@ const FormContacto = () => {
       });
   }
 
+  useEffect(() => {
+    fetch(BASE_URL)
+      .then((res) => res.json())
+      .then((data) => setDatos(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <>
       <Navbar />
-      <div id="divFormContacto">
-        <p id="parOutForm">If you lost your pet or found it published <a href="/">here</a>, <br /> send us a message and we will contact you.</p>
-        <form id="formContacto" action="" className="form-register" onSubmit={handleSubmit}>
-          <h4>Contacto</h4>
-          <input ref={nombreCompleto} className="controls" type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Enter your first and last name" />
-          <input ref={email} className="controls" type="email" name="correo" id="correo" placeholder="Enter your email address" />
-          <input ref={telefono} className="controls" type="tel" id="phone" name="phone" placeholder='Enter your Phone Number' required
-            pattern="^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$" />
-          <input type="file" ref={fileInput} />
-          <textarea ref={mensaje} className="controls" name="mensaje" id="mensaje" cols="30" rows="10" placeholder='Enter your message' required></textarea>
-          <label htmlFor="acuerdo">
-            <input ref={acuerdo} type="checkbox" id="parOnForm" name="acuerdo" required />
-            I agree to the <a href="#">Terms and Conditions</a>
-          </label>
-          {enviado && <p className="success-message">The message was sent correctly.</p>}
-          {error && <p className="error-message">{error}</p>}
-          <input className="botons" type="submit" value="Send Message" />
-        </form>
-      </div>
+        {user ? (
+      <div className="container-contacto">
+            {datos.map((form) => (
+          <div>
+              <div className="card-contacto" key={form.id}>
+                <div>
+                  <ul>
+                    <li>Name: {form.nombreCompleto}</li>
+                    <li>Phone: {form.telefono}</li>
+                    <li>Email: {form.email}</li>
+                    <li>Message: {form.mensaje}</li>
+                  </ul>
+                </div>
+              </div>    
+          </div>
+            ))}
+        </div>
+        ) : (
+          <div className="divFormContacto">
+            <p id="parOutForm">If you lost your pet or found it published <a href="/">here</a>, <br /> send us a message and we will contact you.</p>
+            <form
+              id="formContacto"
+              action=""
+              className="form-register"
+              onSubmit={handleSubmit}
+            >
+              <h4>Contacto</h4>
+              <input ref={nombreCompleto} className="controls" type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Enter your first and last name" />
+              <input ref={email} className="controls" type="email" name="correo" id="correo" placeholder="Enter your email address" />
+              <input ref={telefono} className="controls" type="tel" id="phone" name="phone" placeholder='Enter your Phone Number' required
+                pattern="^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$" />
+              <input type="file" ref={fileInput} id="inputFile"/>
+              <textarea ref={mensaje} className="controls" name="mensaje" id="mensaje" cols="30" rows="10" placeholder='Enter your message' required></textarea>
+              <label htmlFor="acuerdo">
+                <input ref={acuerdo} type="checkbox" id="parOnForm" name="acuerdo" required />
+                I agree to the <a href="#">Terms and Conditions</a>
+              </label>
+              {enviado && <p className="success-message">The message was sent correctly.</p>}
+              {error && <p className="error-message">{error}</p>}
+              <input className="botons" type="submit" value="Enviar mensaje" />
+            </form>
+          </div>
+        )}
+      
     </>
   )
 }

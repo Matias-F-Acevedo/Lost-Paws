@@ -5,7 +5,7 @@ import React, { createContext, useState, useEffect } from 'react';
 const UserContext = createContext();
 
 // { children } representa a todo componente hijo de userProvider
-// UserProvider englobal el estado user y las funciones handle
+// UserProvider engloba el estado user y las funciones handle
 const UserProvider = ({ children }) => {
   //este estado de usuario va a ser del contexto global
   const [user, setUser] = useState(null);

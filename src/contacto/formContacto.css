@@ -1,4 +1,4 @@
-#divFormContacto{
+.divFormContacto{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,12 +8,14 @@
     color: rgb(88, 24, 69)
 }
 #formContacto{
+  
     margin: 3%;
     font-style: italic;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(255, 195, 0)
 }
 .form-register {
+  
     background: rgb(88, 24, 69);
     width: 40%;
     padding: 20px;
@@ -26,11 +28,12 @@
     box-shadow: 7px 13px 37px #000000;
   }
   .form-register h4 {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 20px;
     color: rgb(255, 195, 0)
   }
   .controls {
+    margin-top: 10px;
     width: 100%;
     background: rgb(255, 255, 255);
     padding: 10px;
@@ -74,5 +77,39 @@
     background-color: green;
   }
   #parOnForm{
-    font-size: 14px;
+    font-size: 12px;
   }
+
+  #inputFile{
+    font-size: 12px;
+  }
+
+  .container-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    margin: 1%;
+}
+
+.card-contacto{
+  background-color: rgb(255, 195, 0);
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  padding: 15px; 
+  cursor: pointer;
+}
+
+.container-contacto ul li {
+  list-style: none;
+}
+
+.container-contacto ul {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-left: 6px;
+}
