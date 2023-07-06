@@ -2,14 +2,17 @@ import Navbar from "../navbar/Navbar"
 import "./Nosotros.css"
 import { Carousel } from "react-responsive-carousel"; // importa el componente de carrusel
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // importa los estilos del carrusel
-
+import Footer from "../footer/footer"
 
 const Nosotros = () => {
     return (
       <>
         <Navbar/>
       <div className="nosotrosDiv">
-        <h2>Find lost animals with us</h2>
+        <div className="title-aboutUs">
+        <h2>🐾 Find lost animals with us 🐾</h2>
+        </div>
+        <div className="content-aboutUs">
        <br></br>
         <p>
         In our organization, we are dedicated to finding and rescuing lost animals. Our main goal is to reunite lost pets with their owners.
@@ -33,6 +36,7 @@ const Nosotros = () => {
         If you are interested in being part of our organization as a volunteer or if you would like to support us in any other way, please contact us - together we can make a difference!
         </p>
         <p className="email">lost.paws@gmail.com</p>
+        </div>
         </div>
         <div className="carousel-container">
         <Carousel autoPlay={true} interval={2000}>
@@ -58,6 +62,7 @@ const Nosotros = () => {
             </div>
         </Carousel>
         </div>
+        <Footer></Footer>
       </>
     );
   }
