@@ -2,14 +2,14 @@ import Navbar from "../../navbar/Navbar";
 import "./Login.css"
 import { useState, useEffect, useContext } from "react"
 import { UserContext } from "../../UserContext.jsx";
-
+import Footer from "../../footer/footer";
 
 
 
 function Login() {
 
     // con useContext uso el estado global del UserContext
-    const { user, handleLogin} = useContext(UserContext);
+    const { user, handleLogin } = useContext(UserContext);
 
 
     const [userName, setUserName] = useState("");
@@ -63,13 +63,18 @@ function Login() {
 
     return (
         <>
-            <Navbar/>
+            <Navbar />
             {user ?
-                <div className="container-login-welcome">
-                    <h1 className="login-welcome">{`Welcome ${userName.toLocaleUpperCase()} 🐾`}</h1>
+                <div>
+                    <div className="container-login-welcome">
+                        <h1 className="login-welcome">{`Welcome ${userName.toLocaleUpperCase()} 🐾`}</h1>
 
+
+                    </div>
+                    <div className="img-pet-welcome">
+                        <img src="../src/usuarios/login/perro-y-gato.png" alt="" />
+                    </div>
                 </div>
-                
                 :
                 <div className="container-login">
                     <div className="login">
@@ -83,7 +88,7 @@ function Login() {
                     </div>
                 </div>
             }
-
+            <Footer></Footer>
         </>
     )
 }

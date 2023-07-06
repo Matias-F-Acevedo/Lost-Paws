@@ -11,7 +11,7 @@ import { uploadFile } from "../firebase/config";
 // ---------Styles(icons, alert)-----------------------------------------
 import { FcAddDatabase } from "react-icons/fc";
 import Swal from "sweetalert2";
-
+import Footer from "../footer/footer";
 
 
 
@@ -23,7 +23,7 @@ function Principal() {
     const { user } = useContext(UserContext);
     // backend items
     const [pets, setPets] = useState([])
-    
+
     const [refreshComponent, setRefreshComponent] = useState(false)
 
     const [error, setError] = useState(false);
@@ -50,7 +50,7 @@ function Principal() {
         setTimeout(() => setRefreshComponent(!refreshComponent), 1000)
     }
 
-// -------------------------------modal/dialog----------------------------
+    // -------------------------------modal/dialog----------------------------
 
     const dialog = useRef();
 
@@ -82,7 +82,7 @@ function Principal() {
     });
 
 
-// --------------------------------crud functions-------------------------
+    // --------------------------------crud functions-------------------------
     function selectPet(pet) {
         setcurrentPet(pet)
         setCreate(false)
@@ -100,6 +100,8 @@ function Principal() {
                 denyButtonText: "CANCEL",
                 confirmButtonText: "DELETE",
                 confirmButtonColor: "green",
+                iconColor: "#581845",
+
 
             }
         ).then(response => {
@@ -108,9 +110,21 @@ function Principal() {
                 containerCard.current.classList.remove("displayNone")
                 dialog.current.close();
                 refresh();
-                Swal.fire("Card has been successfully removed", "", "success")
+                Swal.fire(
+                    {
+                        icon: "success",
+                        title: "Card has been successfully removed",
+                        confirmButtonColor: "#581845",
+                        iconColor: "#581845",
+                    })
             } else if (response.isDenied) {
-                Swal.fire("The card has not been removed", "", "info")
+                Swal.fire(
+                    {
+                        icon: "info",
+                        title: "The card has not been removed",
+                        confirmButtonColor: "#581845",
+                        iconColor: "#581845",
+                    })
             } else {
             }
         })
@@ -124,7 +138,13 @@ function Principal() {
         containerCard.current.classList.remove("displayNone")
         if (inputFile.current.files[0] !== undefined) {
             dialog.current.close();
-            Swal.fire("The card has been successfully updated", "", "success")
+            Swal.fire(
+                {
+                    icon: "success",
+                    title: "The card has been successfully updated",
+                    confirmButtonColor: "#581845",
+                    iconColor: "#581845",
+                })
             uploadFile(inputFile.current.files[0]).then((res) => {
                 updateOne(currentPet.id, { ...currentPet, image: res }, urlBase)
                 inputFile.current.value = ""
@@ -135,7 +155,12 @@ function Principal() {
         } else {
             updateOne(currentPet.id, currentPet, urlBase)
             dialog.current.close();
-            Swal.fire("The card has been successfully updated", "", "success")
+            Swal.fire({
+                icon: "success",
+                title: "The card has been successfully updated",
+                confirmButtonColor: "#581845",
+                iconColor: "#581845",
+            })
             refresh();
 
         }
@@ -155,7 +180,13 @@ function Principal() {
         containerCard.current.classList.remove("displayNone")
         if (inputFile.current.files[0] !== undefined) {
             dialog.current.close();
-            Swal.fire("Successfully created Card", "", "success")
+            Swal.fire(
+                {
+                    icon: "success",
+                    title: "Successfully created Card",
+                    confirmButtonColor: "#581845",
+                    iconColor: "#581845",
+                })
             uploadFile(inputFile.current.files[0]).then((res) => {
                 addOne({ ...currentPet, image: res }, urlBase)
                 inputFile.current.value = ""
@@ -163,9 +194,14 @@ function Principal() {
             }
             ).catch((err) => console.log(err))
         } else {
-            addOne({ ...currentPet, image: "https://firebasestorage.googleapis.com/v0/b/prog-trabajo-final-integrador.appspot.com/o/no-hay-icono-de-imagen-disponible-vector-plano.jpg?alt=media&token=642989a7-169b-45b2-af07-caacb48f9be0" }, urlBase)
+            addOne({ ...currentPet, image: "https://firebasestorage.googleapis.com/v0/b/prog-trabajo-final-integrador.appspot.com/o/imagenNoDisponible.png?alt=media&token=399f9a89-c3e8-4c59-9d36-010f0fb39fa3" }, urlBase)
             dialog.current.close();
-            Swal.fire("Successfully created Card", "", "success")
+            Swal.fire({
+                icon: "success",
+                title: "Successfully created Card",
+                confirmButtonColor: "#581845",
+                iconColor: "#581845",
+            })
             refresh();
 
         }
@@ -249,22 +285,22 @@ function Principal() {
 
                             {create ?
                                 <div className="form-div-buttons">
-                                    <button type="submit">Create</button>
+                                    <button className="btn-create-update" type="submit">Create</button>
                                 </div>
                                 :
                                 <div className="form-div-buttons">
-                                    <button type="submit">Update</button>
+                                    <button className="btn-create-update" type="submit">Update</button>
                                 </div>
                             }
                         </form>
 
                         {create ?
                             <div className="dialog-div-buttons">
-                                <button onClick={(e) => closeDialog(e)}>Cancel</button>
+                                <button className="btn-cancel-delete" onClick={(e) => closeDialog(e)}>Cancel</button>
                             </div>
                             :
                             <div className="dialog-div-buttons">
-                                <button onClick={() => deletePet()}>Delete</button>
+                                <button className="btn-cancel-delete" onClick={() => deletePet()}>Delete</button>
                             </div>
                         }
                     </dialog >
@@ -277,7 +313,7 @@ function Principal() {
 
                     pets.map((pet) =>
 
-                        <div className={user? "card": "sight-card"} key={pet.id} onClick={user?() => selectPet(pet):()=>{}} >
+                        <div className={user ? "card" : "sight-card"} key={pet.id} onClick={user ? () => selectPet(pet) : () => { }} >
                             <div className="filter  search">{pet.raza}</div>
 
                             <div className="container-img">
@@ -309,6 +345,7 @@ function Principal() {
 
                 }
             </div>
+            <Footer />
 
         </>
     )

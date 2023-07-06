@@ -1,7 +1,7 @@
 import { useEffect,useRef, useState } from "react";
 import Navbar from "../navbar/Navbar"
 import "./formContacto.css"
-import { UserContext } from "../UserContext";
+import Footer from "../footer/footer"import { UserContext } from "../UserContext";
 import { useContext } from "react";
 
 
