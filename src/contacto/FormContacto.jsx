@@ -1,10 +1,10 @@
-import { useEffect,useRef, useState } from "react";
-import Navbar from "../navbar/Navbar"
-import "./formContacto.css"
-import Footer from "../footer/footer"import { UserContext } from "../UserContext";
+import { useEffect, useRef, useState } from "react";
+import Navbar from "../navbar/Navbar";
+import "./formContacto.css";
+import Footer from "../footer/footer";
+import { UserContext } from "../UserContext";
 import { useContext } from "react";
-
-
+import { uploadFile } from "../firebase/config";
 
 const BASE_URL = "https://648104b3f061e6ec4d4a2cfd.mockapi.io/contacto";
 
@@ -14,13 +14,13 @@ function addOne(user) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   })
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         throw new Error("Error al enviar el formulario");
       }
       return res.json();
     })
-    .then(data => {
+    .then((data) => {
       console.log(data);
       return data;
     })
@@ -29,8 +29,6 @@ function addOne(user) {
       throw new Error("Error al enviar el formulario");
     });
 }
-
-
 
 const FormContacto = () => {
   const nombreCompleto = useRef();
@@ -44,43 +42,48 @@ const FormContacto = () => {
   const { user } = useContext(UserContext);
   const [datos, setDatos] = useState([]);
 
-
-
   const clearFields = () => {
     nombreCompleto.current.value = "";
     email.current.value = "";
     telefono.current.value = "";
     mensaje.current.value = "";
     fileInput.current.value = null;
-  }
+  };
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     console.log(
       nombreCompleto.current.value,
       email.current.value,
-      mensaje.current.value,
+      mensaje.current.value
     );
 
-    const contacto = {
-      nombreCompleto: nombreCompleto.current.value,
-      email: email.current.value,
-      telefono: telefono.current.value,
-      mensaje: mensaje.current.value,
-      imagen: fileInput.current.files[0],
-    };
-    addOne(contacto).then(() => {
-      setEnviado(true);
-      setError(null);
-      clearFields();
-    })
-      .catch((err) => {
-        setError(err.message);
+    const file = fileInput.current.files[0];
+
+    if (file) {
+      try {
+        const url = await uploadFile(file);
+        const contacto = {
+          nombreCompleto: nombreCompleto.current.value,
+          email: email.current.value,
+          telefono: telefono.current.value,
+          mensaje: mensaje.current.value,
+          imagen: url,
+        };
+        await addOne(contacto);
+        setEnviado(true);
+        setError(null);
+        clearFields();
+      } catch (error) {
+        setError(error.message);
         setEnviado(false);
-      });
-  }
+      }
+    } else {
+      setError("Please select a file");
+      setEnviado(false);
+    }
+  };
 
   useEffect(() => {
     fetch(BASE_URL)
@@ -92,55 +95,88 @@ const FormContacto = () => {
   return (
     <>
       <Navbar />
-        {user ? (
-      <div className="container-contacto">
-            {datos.map((form) => (
-          <div>
+      {user ? (
+        <div className="container-contacto">
+          {datos.map((form) => (
+            <div>
               <div className="card-contacto" key={form.id}>
-                <div>
+                <div className="card-content">
                   <ul>
                     <li>Name: {form.nombreCompleto}</li>
                     <li>Phone: {form.telefono}</li>
                     <li>Email: {form.email}</li>
                     <li>Message: {form.mensaje}</li>
                   </ul>
+                  <a href={form.imagen} target="_blank" rel="noopener noreferrer">
+                    <img src={form.imagen} alt="Preview" className="image-preview" />
+                  </a>
                 </div>
-              </div>    
-          </div>
-            ))}
-        </div>
-        ) : (
-          <div className="divFormContacto">
-            <p id="parOutForm">If you lost your pet or found it published <a href="/">here</a>, <br /> send us a message and we will contact you.</p>
-            <form
-              id="formContacto"
-              action=""
-              className="form-register"
-              onSubmit={handleSubmit}
-            >
-              <h4>Contacto</h4>
-              <input ref={nombreCompleto} className="controls" type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Enter your first and last name" />
-              <input ref={email} className="controls" type="email" name="correo" id="correo" placeholder="Enter your email address" />
-              <input ref={telefono} className="controls" type="tel" id="phone" name="phone" placeholder='Enter your Phone Number' required
-                pattern="^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$" />
-              <input type="file" ref={fileInput} id="inputFile"/>
-              <textarea ref={mensaje} className="controls" name="mensaje" id="mensaje" cols="30" rows="10" placeholder='Enter your message' required></textarea>
-              <label htmlFor="acuerdo">
-                <input ref={acuerdo} type="checkbox" id="parOnForm" name="acuerdo" required />
-                I agree to the <a href="#">Terms and Conditions</a>
-              </label>
-              {enviado && <p className="success-message">The message was sent correctly.</p>}
-              {error && <p className="error-message">{error}</p>}
-              <input className="botons" type="submit" value="Enviar mensaje" />
-            </form>
-          </div>
-        )}
-      
-    </>
-  )
-}
+              </div>
 
-export default FormContacto
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="divFormContacto">
+          <p id="parOutForm">
+            If you lost your pet or found it published <a href="/">here</a>,
+            <br /> send us a message and we will contact you.
+          </p>
+          <form
+            id="formContacto"
+            action=""
+            className="form-register"
+            onSubmit={handleSubmit}
+          >
+            <h4>Contacto</h4>
+            <input
+              ref={nombreCompleto}
+              className="controls"
+              type="text"
+              name="nombreCompleto"
+              id="nombreCompleto"
+              placeholder="Enter your first and last name"
+            />
+            <input
+              ref={email}
+              className="controls"
+              type="email"
+              name="correo"
+              id="correo"
+              placeholder="Enter your email address"
+            />
+            <input
+              ref={telefono}
+              className="controls"
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your Phone Number"
+              required
+              pattern="^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$"
+            />
+            <input type="file" ref={fileInput} id="inputFile" />
+            <textarea ref={mensaje} className="controls" name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Enter your message" required
+            ></textarea>
+            <label htmlFor="acuerdo">
+              <input  ref={acuerdo}  type="checkbox"  id="parOnForm"  name="acuerdo"  required
+              />
+              I agree to the <a href="#">Terms and Conditions</a>
+            </label>
+            {enviado && (
+              <p className="success-message">The message was sent correctly.</p>
+            )}
+            {error && <p className="error-message">{error}</p>}
+            <input className="botons" type="submit" value="Enviar mensaje" />
+          </form>
+        </div>
+      )}
+      <Footer></Footer>
+    </>
+  );
+};
+
+export default FormContacto;
 
 
 
