@@ -226,7 +226,7 @@ function Home() {
 
             {
                 pets.length == 0 && user !== true && error == false ?
-                    <h2>Loading...</h2>
+                    <h2 className="h2-loading">Loading...</h2>
                     : <></>
             }
 
