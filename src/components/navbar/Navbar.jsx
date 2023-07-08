@@ -1,7 +1,7 @@
 import "./navbar.css"
 import { Link } from "react-router-dom"
 import { useContext } from "react";
-import { UserContext } from '../UserContext';
+import { UserContext } from '../../context/UserContext';
 import { TbLogout,TbLogin } from "react-icons/tb";
 
 
@@ -28,7 +28,7 @@ function Navbar({ componentAdditional }) {
     return (
         <header className="header">
             <div className="logo">
-                <Link to={"/"}> <img src="/src/navbar/logo.png" alt="Logo" /></Link>
+                <Link to={"/"}> <img src="/src/components/navbar/logo.png" alt="Logo" /></Link>
             </div>
             <div className="componentAdditional">
                 {componentAdditional}
@@ -38,8 +38,8 @@ function Navbar({ componentAdditional }) {
 
                 <ul className="nav-links">
 
-                    <li><Link to={"/nosotros"}>About us</Link></li>
-                    <li><Link to={"/contacto"}>Contact</Link></li>
+                    <li><Link to={"/AboutUs"}>About us</Link></li>
+                    <li><Link to={"/contact"}>Contact</Link></li>
 
                 </ul>
 
@@ -57,8 +57,8 @@ function Navbar({ componentAdditional }) {
             <div className="overlay" id="responsive-menu">
                 <button onClick={closeNav} className="close">x</button>
                 <div className="overlay-content">
-                    <Link to={"/nosotros"}>About us</Link>
-                    <Link to={"/contacto"}>Contact</Link>
+                    <Link to={"/AboutUs"}>About us</Link>
+                    <Link to={"/contact"}>Contact</Link>
                     {user ?
                         <button onClick={handleLogout} className="btnCloseSession">Logout <TbLogout/></button>
                         :

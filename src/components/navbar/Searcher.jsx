@@ -1,5 +1,5 @@
 
-function Buscador(){
+function Searcher(){
 
   
   function handleKeyUp(e)  {
@@ -25,4 +25,4 @@ function Buscador(){
   }
   
   
-  export default Buscador
+  export default Searcher;

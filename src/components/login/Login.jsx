@@ -1,8 +1,8 @@
-import Navbar from "../../navbar/Navbar";
-import "./Login.css"
+import Navbar from "../../components/navbar/Navbar";
+import "./login.css"
 import { useState, useEffect, useContext } from "react"
-import { UserContext } from "../../UserContext.jsx";
-import Footer from "../../footer/footer";
+import { UserContext } from "../../context/UserContext";
+import Footer from "../footer/Footer";
 
 
 
@@ -72,7 +72,7 @@ function Login() {
 
                     </div>
                     <div className="img-pet-welcome">
-                        <img src="../src/usuarios/login/perro-y-gato.png" alt="" />
+                        <img src="../src/components/login/perro-y-gato.png" alt="" />
                     </div>
                 </div>
                 :

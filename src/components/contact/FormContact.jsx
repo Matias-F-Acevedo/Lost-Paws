@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect } from "react";
-import Navbar from "../navbar/Navbar"
-import "./formContacto.css"
-import Footer from "../footer/footer"
-import { UserContext } from "../UserContext";
+import Navbar from "../navbar/Navbar";
+import "./formContact.css"
+import Footer from "../footer/Footer"
+import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
-import { deleteOne, updateOne } from "../fuctionsHTTP";
-import { uploadFile } from "../firebase/config";
+import { deleteOne, updateOne } from "../../services/fuctionsHTTP";
+import { uploadFile } from "../../services/firebase/config";
 import Swal from "sweetalert2";
 import { MdDeleteForever } from "react-icons/md";
 import {AiFillCheckCircle, AiOutlineCheckCircle} from "react-icons/ai";
@@ -36,7 +36,7 @@ function addOne(user) {
 
 
 
-const FormContacto = () => {
+const FormContact = () => {
   const nombreCompleto = useRef();
   const email = useRef();
   const telefono = useRef();
@@ -217,7 +217,7 @@ const FormContacto = () => {
   )
 }
 
-export default FormContacto
+export default FormContact
 
 
 
