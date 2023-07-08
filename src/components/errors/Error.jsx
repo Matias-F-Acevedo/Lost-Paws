@@ -7,7 +7,7 @@ function Error (){
     return (
         <div className="container-error">
            
-            <img src="./src/errores/img1.svg" alt="Error" className="img-error"/>
+            <img src="./src/components/errors/img1.svg" alt="Error" className="img-error"/>
              <h1 className="h1-error">Error: the page you requested does not exist. ({error.statusText || error.message})</h1>
             <div className="container-button-error"> 
             

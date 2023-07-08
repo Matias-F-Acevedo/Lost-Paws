@@ -1,10 +1,10 @@
-import Navbar from "../navbar/Navbar"
-import "./Nosotros.css"
+import Navbar from "../navbar/Navbar";
+import "./aboutUs.css"
 import { Carousel } from "react-responsive-carousel"; // importa el componente de carrusel
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // importa los estilos del carrusel
-import Footer from "../footer/footer"
+import Footer from "../footer/Footer";
 
-const Nosotros = () => {
+const AboutUs = () => {
     return (
       <>
         <Navbar/>
@@ -66,4 +66,4 @@ const Nosotros = () => {
       </>
     );
   }
-  export default Nosotros;
+  export default AboutUs;

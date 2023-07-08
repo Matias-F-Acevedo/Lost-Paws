@@ -9,14 +9,14 @@ function Footer() {
                 <div className="footer-row">
                     <div className="footer-links">
 
-                    <Link to={"/"}><img src="./src/navbar/logo.png" alt="logo Lost Paws" /></Link>
+                    <Link to={"/"}><img src="/src/components/navbar/logo.png" alt="logo Lost Paws" /></Link>
                         <p>Copyright © 2023 Lost Paws.</p>
                     </div>
                     <div className="footer-links">
                         <h4>Company</h4>
                         <ul>
-                            <li><Link to={"/nosotros"}>About us</Link></li>
-                            <li><Link to={"/contacto"}>Contact</Link></li>
+                            <li><Link to={"/AboutUs"}>About us</Link></li>
+                            <li><Link to={"/contact"}>Contact</Link></li>
                             <li><Link to={"/"}>Privacy policy</Link></li>
                         </ul>
                     </div>

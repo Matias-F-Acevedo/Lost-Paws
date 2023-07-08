@@ -1,17 +1,12 @@
-import Login from "./usuarios/login/Login"
-import Principal from "./principal/Principal"
-import Error from "./errores/Error"
-import Nosotros from "./nosotros/Nosotros"
-import FormContacto from "./contacto/FormContacto"
+import Login from "./components/login/Login"
+import Home from "./components/home/Home"
+import Error from "./components/errors/Error"
+import AboutUs from "./components/aboutUs/AboutUs"
+import FormContact from "./components/contact/FormContact"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import { UserProvider } from './UserContext.jsx';
-
-
-
-
-
+import { UserProvider } from './context/UserContext';
 
 
 
@@ -23,16 +18,16 @@ function App() {
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <Principal/>,
+            element: <Home/>,
             errorElement: <Error />,
         },
         {
-            path: '/nosotros',
-            element: <Nosotros/>,
+            path: '/AboutUs',
+            element: <AboutUs/>,
         },
         {
-            path: '/contacto',
-            element: <FormContacto/>,
+            path: '/contact',
+            element: <FormContact/>,
         },
         {
             path: '/login',
@@ -40,7 +35,6 @@ function App() {
         },
 
     ]);
-
 
 
 

@@ -1,24 +1,24 @@
 // ---------components-----------------------------------------
-import Navbar from "../navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import { useState, useEffect, useRef } from "react";
-import "./principal.css"
+import "./home.css"
 import { useContext } from "react";
-import { UserContext } from '../UserContext';
-import Buscador from "../navbar/Buscador";
+import { UserContext } from '../../context/UserContext';
+import Searcher from "../../components/navbar/Searcher";
 // ---------functions-----------------------------------------
-import { addOne, updateOne, deleteOne } from "../fuctionsHTTP";
-import { uploadFile } from "../firebase/config";
+import { addOne, updateOne, deleteOne } from "../../services/fuctionsHTTP";
+import { uploadFile } from "../../services/firebase/config";
 // ---------Styles(icons, alert)-----------------------------------------
 import { FcAddDatabase } from "react-icons/fc";
 import Swal from "sweetalert2";
-import Footer from "../footer/footer";
+import Footer from "../footer/Footer";
 
 
 
 const urlBase = "https://648e054b2de8d0ea11e87f07.mockapi.io/pets/";
 
 
-function Principal() {
+function Home() {
     // global state
     const { user } = useContext(UserContext);
     // backend items
@@ -222,11 +222,11 @@ function Principal() {
 
     return (
         <>
-            <Navbar componentAdditional={<Buscador />} />
+            <Navbar componentAdditional={<Searcher />} />
 
             {
                 pets.length == 0 && user !== true && error == false ?
-                    <h2>Loading...</h2>
+                    <h2 className="h2-loading">Loading...</h2>
                     : <></>
             }
 
@@ -351,4 +351,4 @@ function Principal() {
     )
 }
 
-export default Principal
+export default Home;
