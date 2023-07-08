@@ -2,6 +2,8 @@
 
 Lost Paws is a React based project with the goal of helping to find lost animals. The main purpose of this application is to provide a platform where users can contact the site administrators to post information about lost or found animals, or also to facilitate finding any of them with their owners. Throughout the project, agile methodologies such as Scrum and good programming practices were applied.
 
+Project report: https://drive.google.com/drive/folders/1CjKQFwmLq2sl4jpihM4qT3KSOhFine-P?usp=sharing
+
 ## Functionalities
 * Card Display: Users can view lost animal cards on the home page. Each card shows details such as the pet's breed, the location where it was lost and contact information.
 * Card Editing and Posting (Admin): Administrators have access to edit existing cards or post new lost pet cards. This allows them to keep the information on the site up to date.
