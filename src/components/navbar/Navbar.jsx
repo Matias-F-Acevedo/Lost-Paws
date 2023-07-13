@@ -1,6 +1,6 @@
 import "./navbar.css"
 import { Link } from "react-router-dom"
-import { useContext } from "react";
+import { useContext,useRef } from "react";
 import { UserContext } from '../../context/UserContext';
 import { TbLogout,TbLogin } from "react-icons/tb";
 
@@ -9,18 +9,17 @@ import { TbLogout,TbLogin } from "react-icons/tb";
 
 
 function Navbar({ componentAdditional }) {
-
-
+    
     const { user, handleLogout } = useContext(UserContext);
+    const responsiveMenu = useRef();
+
 
     function openNav() {
-        document.getElementById("responsive-menu").style.width = "100%"
-
+        responsiveMenu.current.style.width="100%"
     }
 
     function closeNav() {
-        document.getElementById("responsive-menu").style.width = "0%"
-
+        responsiveMenu.current.style.width="0%"
     }
 
 
@@ -54,7 +53,7 @@ function Navbar({ componentAdditional }) {
             <button onClick={openNav} className="menu">Menu</button>
 
 
-            <div className="overlay" id="responsive-menu">
+            <div ref={responsiveMenu} className="overlay" id="responsive-menu">
                 <button onClick={closeNav} className="close">x</button>
                 <div className="overlay-content">
                     <Link to={"/AboutUs"}>About us</Link>
