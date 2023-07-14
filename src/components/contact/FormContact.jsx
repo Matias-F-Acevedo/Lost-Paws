@@ -4,37 +4,13 @@ import "./formContact.css"
 import Footer from "../footer/Footer"
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
-import { deleteOne, updateOne } from "../../services/fuctionsHTTP";
+import { addOne, deleteOne, updateOne } from "../../services/fuctionsHTTP";
 import { uploadFile } from "../../services/firebase/config";
 import Swal from "sweetalert2";
 import { MdDeleteForever } from "react-icons/md";
 import {AiFillCheckCircle, AiOutlineCheckCircle} from "react-icons/ai";
 
 const BASE_URL = "https://648104b3f061e6ec4d4a2cfd.mockapi.io/contacto/";
-
-function addOne(user) {
-  return fetch(BASE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error("Error al enviar el formulario");
-      }
-      return res.json();
-    })
-    .then(data => {
-      console.log(data);
-      return data;
-    })
-    .catch((err) => {
-      console.error(err);
-      throw new Error("Error al enviar el formulario");
-    });
-}
-
-
 
 const FormContact = () => {
   const nombreCompleto = useRef();
@@ -80,7 +56,7 @@ const FormContact = () => {
           mensaje: mensaje.current.value,
           imagen: url,
         };
-        await addOne(contacto);
+        addOne(contacto, BASE_URL);
         setEnviado(true);
         setError(null);
         clearFields();
