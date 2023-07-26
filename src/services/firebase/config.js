@@ -14,12 +14,12 @@ import {v4} from 'uuid'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB1aIZbKW2B6XPtDv7oyZYuyWPbOBCNzwQ",
-  authDomain: "prog-trabajo-final-integrador.firebaseapp.com",
-  projectId: "prog-trabajo-final-integrador",
-  storageBucket: "prog-trabajo-final-integrador.appspot.com",
-  messagingSenderId: "764381073293",
-  appId: "1:764381073293:web:e4fc7f9d2639f7fa5677c4"
+  apiKey: "AIzaSyCbljOcil_7Wc6GmQtBTzy2jYJnXZ-1_4c",
+  authDomain: "lostpaws-tp-final-integrador.firebaseapp.com",
+  projectId: "lostpaws-tp-final-integrador",
+  storageBucket: "lostpaws-tp-final-integrador.appspot.com",
+  messagingSenderId: "451646127910",
+  appId: "1:451646127910:web:f27bce19828ee5be540be7"
 };
 
 // Initialize Firebase
